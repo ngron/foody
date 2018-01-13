@@ -1,3 +1,40 @@
-<div class="text-center">
-  <img src="/images/foods.png">
-</div>
+<% if logged_in? %>
+<!--ログインしているとき-->
+  <div class="row">
+    <div class="col-md-6 col-sm-2 col-xs-12">
+      
+      <% @posts.each do |post| %>
+       <%= link_to post_path(post) do %>
+        <div class="panel">
+          <div class="panel-heading text-center">
+            <div class="panel-title">
+              <p><%= post.title %></p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <% if post.photo? %>
+              <div class="thumbnail">
+                <%= image_tag post.photo %>
+                <p class="ribbon"><%= post.price %>円</p>
+              </div>
+            <% end %>
+          </div>
+          <div class="panel-footer">
+            <img src="<%= gravatar_url(post.user, size:30) %>" class="img-circle">
+            <span class="user-name"><%= post.user.name %></span>
+          </div>
+        </div>
+       <% end %>
+      <% end %>
+      <%= paginate @posts %>
+    </div>
+  </div>
+<% else %> 
+<!--ログインしていないとき-->
+  <div class="text-center">
+    <img src="/images/foods.png">
+    <div class="text-center">
+      <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  </div>
+<% end %>

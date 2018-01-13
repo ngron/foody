@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <!--写真-->
+    <% if @post.photo? %>
+      <div class="thumbnail">
+        <%= image_tag @post.photo %>
+        <p class="ribbon"><%= @post.price %>円</p>
+      </div>
+    <% end %>
+    <!--タイトル-->
+    <p class="text-center"><%= @post.title %></p>
+    <div class="panel panel-body description-space" >
+      <%= @post.description %>
+    </div>
+    <!--コメントスペース-->
+    (チャットスペース)<br>
+    <!--コメントフォーム-->
+    (コメントフォーム）
+  </div>
+  <!--自分の投稿のみ表示-->
+  <div class="col-md-12 text-center">
+    <%= link_to "編集する",edit_post_path(@post) %>
+  </div>
+  
+</div>
