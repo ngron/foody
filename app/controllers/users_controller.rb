@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     end
   end
   
+  def mylist
+    @user = User.find(params[:id])
+    @posts = current_user.posts.all.page(params[:page])
+  end
+  
+  def notice
+  end
+  
   private 
   
   def user_params

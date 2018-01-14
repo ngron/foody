@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   
   # 登録
   get "signup", to: "users#new"
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create] do
+    member do
+      get :notice
+      get :mylist
+    end
+  end
   
   # ログイン
   get "login", to: "session#new"

@@ -1,0 +1,50 @@
+<div class="user-profile">
+  <div class="text-center">
+    <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+  </div>
+  <div class="name text-center">
+    <h1><%= @user.name %></h1>
+  </div>
+</div>
+<ul class="nav nav-tabs nav-justified">
+    <li class="<%= "active" if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>お知らせ<span claass="badge"></span><% end %></li>
+    <li class="<%= "active" if current_page?(mylist_user_path(@user)) %>"><%= link_to mylist_user_path(@user) do %>マイリスト<span claass="badge"></span><% end %></li>
+    <% if logged_in? %>
+<!--ログインしているとき-->
+      <div class="row">
+        <div class="col-md-6 col-sm-2 col-xs-12">
+          <div class="mylist_field">
+            <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
+                <div class="panel">
+                  <!--<div class="panel-heading text-center">-->
+                  <!--  <div class="panel-title">-->
+                  <!--    -->
+                  <!--  </div>-->
+                  <!--</div>-->
+                  <div class="panel-body">
+                    <% if post.photo? %>
+                      <div class="thumbnail">
+                        <%= image_tag post.photo %>
+                        <p class="ribbon"><%= post.price %>円</p>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="panel-footer">
+                    <p><%= post.title %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>  
+          <%= paginate @posts %>
+        </div>
+      </div>
+    <% else %> 
+    <!--ログインしていないとき-->
+      <div class="text-center">
+        
+      </div>
+    <% end %>
+</ul>
+
