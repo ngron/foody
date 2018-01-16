@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   delete "logout", to: "session#destroy"
   
   # 投稿
-  resources :posts, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :posts, only: [:show, :new, :create, :edit, :update, :destroy] do
+    member do
+      post :comment
+    end
+  end
 end

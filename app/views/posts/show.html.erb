@@ -9,17 +9,72 @@
     <% end %>
     <!--タイトル-->
     <p class="text-center"><%= @post.title %></p>
-    <div class="panel panel-body description-space" >
+    <!--説明-->
+    <div class="panel panel-body description-space">
       <%= @post.description %>
     </div>
+  
     <!--コメントスペース-->
-    (チャットスペース)<br>
+    <% @comments.each do |comment| %>
+    <!--この投稿(@post.id)とコメントのpost_idが一緒のものだけが表示される-->
+      <% if @post.id == comment.post_id %>
+        <div class="row row-center">
+          <!--自分のコメントだった場合-->
+          <% if comment.user_id == current_user.id %>
+            <!--アバターの表示-->
+              <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                <div class="popover left show"style="position:relative; top=-90px; left=100px; max-width:100%; display:inline;">
+                  <div class="arrow"></div>
+                  <h3 class="popover-title"><%= comment.user.name %></h3>
+                  <div class="popover-content">
+                    <p><%= comment.content %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5">
+                <%= link_to user_path(comment.user_id) do %><img src="<%= gravatar_url(comment.user, options = { size: 50 }) %>" class="img-responsive img-circle reviews"><% end %>
+              </div>
+         <!--相手のコメントだった場合-->
+          <% else %>
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5">
+            <!--アバターの表示-->
+              <%= link_to user_path(comment.user_id) do %><img src="<%= gravatar_url(comment.user, options = { size: 50 }) %>" class="img-responsive img-circle reviews"><% end %>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+              <div class="popover right show"style="position:relative; top=-90px; left=100px; max-width:100%; display:inline;">
+                <div class="arrow"></div>
+                <h3 class="popover-title"><%= comment.user.name %></h3>
+                <div class="popover-content">
+                  <p><%= comment.content %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          
+        </div>
+      <% end %>
+    <% end %>
+    
     <!--コメントフォーム-->
-    (コメントフォーム）
+    <%= form_for(@comment,url: comment_post_path(@post)) do |f| %>
+    
+      <div class="form-group">
+        <%= f.label :content, "コメント" %>
+        <%= f.text_area :content, rows:"4", class: "form-control", placeholder: "コメントを入力" %>
+      </div>
+      
+      <%= hidden_field_tag :post_id, @post.id %>
+      <%= f.submit "コメントする",class: "btn btn-block btn-comment" %>
+    <% end %>
+    
   </div>
   <!--自分の投稿のみ表示-->
-  <div class="col-md-12 text-center">
-    <%= link_to "編集する",edit_post_path(@post) %>
-  </div>
-  
+  <% if current_user == @post.user %>
+    <div class="col-md-12 text-center">
+      <%= link_to "投稿を編集する", edit_post_path(@post), class: "btn btn-primary btn-post-edit" %>
+    </div>
+    <div class="col-md-12 text-center">
+      <%= link_to "投稿を削除する", @post, method: :delete, data: { confirm: "本当に削除してよろしいですか？"},class: "btn btn-danger btn-post-destroy" %>
+    </div>
+  <% end %>
 </div>

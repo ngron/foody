@@ -1,17 +1,23 @@
 @charset "utf-8";
 
+/*トップページ*/
 .panel{
   border: 1px solid #DCDCDC;
 }
 .panel-title{
   height: 10px;
 }
-.panel-body{
+.thumbnail-body{
+  height:290px;
 }
 .thumbnail{
   position:relative;
 }
-.panel-body p{
+.thumbnail img{
+  height:250px;
+  width:460px;
+}
+.thumbnail p{
   position:absolute;
   bottom:0px;
   left:5px;
@@ -35,4 +41,43 @@
     width: 0px;
     height: 0px;
     z-index: 1;
+}
+.header-image{
+  position:relative;
+}
+.header-image-btn{
+  position:absolute;
+  top:300px;
+  left:420px;
+  opacity:0.8;
+}
+
+/*//吹き出し用の設定*/
+.popover.show{
+  margin-bottom: 10px;
+}
+/*//横の画像用の設定*/
+img.reviews {
+  margin-bottom: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+/*//並んでいるものを上下中央で揃える設定*/
+.row-center{
+  text-align: center;
+  letter-spacing: -0.4em;
+}
+.row-center > [class*='col-'] {
+  display: inline-block;
+  letter-spacing: 0;
+  vertical-align: middle;
+  float: none !important;
+}
+.btn-comment{
+  margin-bottom:60px;
+}
+.btn-post-edit{
+  margin-bottom:15px;
+}
+.btn-post-destroy{
+  margin-bottom:60px;
 }
