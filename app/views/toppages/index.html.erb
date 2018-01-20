@@ -27,20 +27,85 @@
       <% end %>
     <% end %>
       <%= paginate @posts %>
-    
   </div>
 <% else %> 
 <!--ログインしていないとき-->
-<div class="text-center">
-  <div class="header-image">
-    <img src="/images/foods.png">
-    <%= link_to "始める", signup_path, class: "btn btn-lg btn-warning header-image-btn" %>
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div class="text-center">
+        <div class="header-image">
+          <img src="/images/foods.png" width="100%">
+          <%= link_to "始める", signup_path, class: "btn btn-lg btn-warning header-image-btn" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4 col-xs-4">
-    
-  </div>
-</div>
   
+  <div class="row row-eq-height procedure">
+      <div class="col-md-4 col-xs-12">
+        <div class="panel text-center">
+          <h3>簡単シェア</h3>
+          <img src="/images/icon_121690_256.png">
+          <p>写真を撮って特徴を入力</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="panel text-center">
+          <h3>近くで探す</h3>
+          <img src="/images/icon_158260_256.png">
+          <p>位置情報を取得し、余った食材を周辺で探す</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="panel text-center">
+          <h3>取りに行く</h3>
+          <img src="/images/icon_142920_256.png">
+          <p>取引が成立したら取りに行こう</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row row-eq-height flat-field">
+    <div class="col-md-4 col-xs-4">
+      <img src="/images/trash-313711_640.jpg" width="90%">
+    </div>
+    <div class="col-md-8 col-xs-8">
+      <div class="food-flat">
+        <h3 class="text-center">食をもっとフラットに</h3>
+        <p>日本における「食品ロス」は約642万トン。<br>その内約半数が家庭から出ており、毎日お茶碗一杯分の食材が捨てられていると言われています。<br>無駄な食品ロスを減らすべく、個人や、飲食店、企業が、余剰食品を気軽にシェアするプラットフォームがここにあります。</p>
+      </div>
+    </div>
+  </div>
+  
+  <!--<div class="col-md-12">-->
+  <!--  <h2 class="text-center">こんな悩みありませんか？</h2>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+  <!--  <div class="col-md-6">-->
+  <!--    <p>・賞味期限が近くて食べきれないし、誰か受け取ってくれないかな。</p>-->
+  <!--    <p>・作りすぎちゃったらみんなを呼んでパーティーしたいな</p>-->
+  <!--  </div>-->
+  <!--  <div class="col-md-6">-->
+      
+  <!--  </div>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center signup-field">
+      <h3>あなたの<span class="red-text">「もったいない」</span>を<br><span class="green-text">「ありがとう」</span class="green-text">に変えてみませんか？</h3>
+      <div><img src="/images/figure_ningenkankei_simple.png"></div>
+        <%= link_to "新規登録", signup_path,class:"btn btn-warning" %>
+    </div>
+  </div>
+  <div class="row">
+  <footer class="col-md-12 footer-field text-center">
+    <div class="container">
+      <div class="icon-field">
+       <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+       <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+       <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+      </div>
+    </div>
+  </footer>
+  </div>
 <% end %>
