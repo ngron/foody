@@ -1,10 +1,20 @@
 @charset "utf-8";
+.wrap{
+  overflow:hidden;
+}
+.navbar{
+  margin-bottom:0px;
+}
 
 /*トップページ*/
-.panel{
+/*ログイン後*/
+.panel-extend{
   border: 1px solid #DCDCDC;
 }
-.panel-title{
+.panel-content{
+  margin-top:20px;
+}
+.panel-title-extend{
   height: 10px;
 }
 .thumbnail-body{
@@ -16,6 +26,7 @@
 .thumbnail img{
   height:250px;
   width:460px;
+  object-fit: cover;
 }
 .thumbnail p{
   position:absolute;
@@ -43,29 +54,44 @@
     z-index: 1;
 }
 
-.header-image{
+
+/*ログイン前ログイン前ログイン前ログイン前ログイン前ログイン前ログイン前ログイン前ログイン前*/
+.top-image{
   position:relative;
   margin-bottom:40px;
 }
-.header-image-btn{
+.top-image-btn{
   position:absolute;
-  top:400px;
-  left:400px;
+  top:70%;
+  left:43%;
   opacity:0.8;
 }
-.flat-field{
-  margin:40px 0px 40px;
+/*.flat-field{*/
+/*  margin:40px 0px 40px;*/
+/*}*/
+.news{
+  margin:40px 0px;
 }
-.food-flat{
+.news h2{
+  color:orange;
+}
+.infomation{
   line-height:50px;
   font-size:20px;
 }
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+
+.onayami img{
+  height:250px;
 }
+.onayami{
+  margin:30px 0px;
+}
+.onayami h2{
+  margin-bottom:50px;
+  color:#3DC7BE;
+  text-align:center;
+}
+
 .red-text{
   color:red;
   font-weight:600;
@@ -78,27 +104,30 @@
   background-color:#A9ECA2;
   opacity:0.6;
   border-radius:10px;
-  padding-bottom:20px;
+  padding:20px 0px;
+  
 }
 footer{
   background-color:#F4F9F4;
   height:100px;
-  margin-top:30px;
+  margin-top:50px;
 }
 .footer-field{
   padding-left:100px;
 }
 .footer-field i{
   float:left;
-  text-align:center;
   padding:0px 40px;
   line-height:100px;
 }
-.icon-field{
-  padding-left:270px;
+.onayami img{
+  width: 100%;
 }
 
-/*投稿詳細の設定(show)*/
+
+
+
+/*投稿詳細の設定(show)投稿詳細の設定(show)投稿詳細の設定(show)投稿詳細の設定(show)*/
 /*//吹き出し用の設定*/
 .popover.show{
   margin-bottom: 10px;
@@ -128,24 +157,44 @@ img.reviews {
 .btn-post-destroy{
   margin-bottom:60px;
 }
-
-@media (min-width: 500px) {
-  /* ウインドウ幅500px以上の時に適用されるスタイル */
-  .procedure img{
-    width:100%;
+@media (max-width: 750px) {
+   /*ウインドウ幅500px以下の時に適用されるスタイル */
+   .md-display{
+    display:none;
   }
-}
-
-@media (min-width: 750px) {
-  /* ウインドウ幅750px以上の時に適用されるスタイル */
-  .procedure img{
-    width:30%;
-  }
+  .xs-display > .flat img{
+     width:80%;
+     height:350px;
+     margin:20px 0px;
+   }
+   .xs-display > .flat p{
+     font-size:20px;
+     margin:0px 21px;
+   }
+   .onayami > .xs-display > .border img {
+     border-bottom:solid 5px #FFD6A4;
+   }
+  
 }
 
 @media (min-width: 1000px) {
-  /* ウインドウ幅1000px以上の時に適用されるスタイル */
-  .procedure img{
-    width:30%;
-  }
+   /*ウインドウ幅1000px以上の時に適用されるスタイル */
+   .xs-display{
+     display:none;
+   }
+   .icon-field{
+    margin-left:350px;
+   }
+   .onayami > .md-display > .col-md-6{
+    padding:0px;
+    border-bottom:solid 3px orange;
+   }
+}
+
+@media (min-width: 750px) {
+   /*ウインドウ幅750px以上の時に適用されるスタイル */
+}
+
+@media (min-width: 1000px) {
+   /*ウインドウ幅1000px以上の時に適用されるスタイル */
 }

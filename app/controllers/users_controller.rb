@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @posts = current_user.posts
     counts(@user)
   end
   
@@ -24,10 +25,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = current_user.posts.all.page(params[:page])
     counts(@user)
-  end
-  
-  # notice辞めてshowだけで十分な気がしてきた
-  def notice
   end
   
   private 

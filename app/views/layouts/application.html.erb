@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <title>Foody</title>
     <%= csrf_meta_tags %>
     
@@ -16,12 +15,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
-
-      <%= yield %>
+    <div class="wrap">
+      <%= render 'layouts/navbar' %>
+      
+      <%= yield :cover %>
+      
+      <div class="container">
+        <%= render 'layouts/flash_messages' %>
+      
+        <%= yield %>
+      </div>
+      <%= yield :footer %>
     </div>
   </body>
 </html>

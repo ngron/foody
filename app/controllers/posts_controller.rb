@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   def new
     # 投稿を作成
     @post = current_user.posts.build
-    
   end
 
   def create

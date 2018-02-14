@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :posts
-  
+  # has_many :iii through: posts, 
   has_many :comments
-  # has_many :comments_post_id, throught: :comments, source: :post
+  # has_many :comments_post_id, throught: :comments, source: :
+  # has_many :replys
 end
